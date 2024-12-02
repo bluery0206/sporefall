@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnonnp8p0oooc"]
+
+[ext_resource type="Script" path="res://scripts/util_background_music.gd" id="1_agdn4"]
+
+[node name="BackgroundMusicPlayer" type="AudioStreamPlayer2D"]
+max_distance = 117290.0
+attenuation = 1e+06
+panning_strength = 0.0
+bus = &"Bgm"
+script = ExtResource("1_agdn4")

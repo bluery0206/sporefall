@@ -1,0 +1,195 @@
+[gd_scene load_steps=9 format=3 uid="uid://cj7rq30cddy2y"]
+
+[ext_resource type="Script" path="res://scripts/menu_game_controls.gd" id="1_v526h"]
+[ext_resource type="Texture2D" uid="uid://ctx1d7yk2e2vl" path="res://assets/buttons/left.png" id="1_y4ukl"]
+[ext_resource type="Texture2D" uid="uid://bdwaspgd62dur" path="res://assets/buttons/right.png" id="2_jdgvx"]
+[ext_resource type="Texture2D" uid="uid://3mu4ks1t5sdj" path="res://assets/buttons/up.png" id="3_qegvg"]
+[ext_resource type="Texture2D" uid="uid://cy8x4krbscdmf" path="res://assets/buttons/swing.png" id="4_8444m"]
+[ext_resource type="Texture2D" uid="uid://c0thbowrm7few" path="res://assets/buttons/shoot.png" id="5_wh3m8"]
+[ext_resource type="Texture2D" uid="uid://k2jynhsc00c7" path="res://assets/buttons/pause.png" id="6_efwlx"]
+[ext_resource type="FontFile" uid="uid://bgqdam2blu0o1" path="res://assets/fonts/TerrorLetter-p7v11.ttf" id="7_on6eb"]
+
+[node name="GameControls" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v526h")
+
+[node name="MovementControls" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+
+[node name="LeftButton" type="TouchScreenButton" parent="MovementControls"]
+position = Vector2(56, -154)
+scale = Vector2(1.62, 1.62)
+texture_normal = ExtResource("1_y4ukl")
+action = "left"
+
+[node name="RightButton" type="TouchScreenButton" parent="MovementControls"]
+position = Vector2(217, -154)
+scale = Vector2(1.62, 1.62)
+texture_normal = ExtResource("2_jdgvx")
+action = "right"
+
+[node name="InteractionControls" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Jump" type="TouchScreenButton" parent="InteractionControls"]
+position = Vector2(-146, -114)
+scale = Vector2(1.62, 1.62)
+texture_normal = ExtResource("3_qegvg")
+action = "jump"
+
+[node name="Shoot" type="TouchScreenButton" parent="InteractionControls"]
+position = Vector2(-150, -240)
+scale = Vector2(1.62, 1.62)
+texture_normal = ExtResource("5_wh3m8")
+action = "shoot"
+
+[node name="Swing" type="TouchScreenButton" parent="InteractionControls"]
+position = Vector2(-278, -140)
+scale = Vector2(1.62, 1.62)
+texture_normal = ExtResource("4_8444m")
+action = "swing"
+
+[node name="GameMenu" type="Control" parent="."]
+top_level = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 3.0
+offset_right = 3.0
+grow_horizontal = 2
+
+[node name="Pause" type="TouchScreenButton" parent="GameMenu"]
+position = Vector2(-21, 27)
+scale = Vector2(0.65625, 0.65625)
+texture_normal = ExtResource("6_efwlx")
+action = "pause"
+
+[node name="ScoreBoard" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="ScoreBoard"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScoreBoard/MarginContainer"]
+layout_mode = 2
+
+[node name="EnemiesCountcontainer" type="HBoxContainer" parent="ScoreBoard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="EnemiesCountLabel" type="Label" parent="ScoreBoard/MarginContainer/VBoxContainer/EnemiesCountcontainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 11
+theme_override_constants/shadow_outline_size = 6
+theme_override_fonts/font = ExtResource("7_on6eb")
+theme_override_font_sizes/font_size = 32
+text = "Enemies:"
+
+[node name="EnemiesCount" type="Label" parent="ScoreBoard/MarginContainer/VBoxContainer/EnemiesCountcontainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 11
+theme_override_constants/shadow_outline_size = 6
+theme_override_fonts/font = ExtResource("7_on6eb")
+theme_override_font_sizes/font_size = 32
+
+[node name="Separator" type="Label" parent="ScoreBoard/MarginContainer/VBoxContainer/EnemiesCountcontainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 11
+theme_override_constants/shadow_outline_size = 6
+theme_override_fonts/font = ExtResource("7_on6eb")
+theme_override_font_sizes/font_size = 32
+text = "/"
+
+[node name="EnemiesCountTotal" type="Label" parent="ScoreBoard/MarginContainer/VBoxContainer/EnemiesCountcontainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 11
+theme_override_constants/shadow_outline_size = 6
+theme_override_fonts/font = ExtResource("7_on6eb")
+theme_override_font_sizes/font_size = 32
+
+[node name="ScoreContainer" type="HBoxContainer" parent="ScoreBoard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ScoreLabel" type="Label" parent="ScoreBoard/MarginContainer/VBoxContainer/ScoreContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 11
+theme_override_constants/shadow_outline_size = 6
+theme_override_fonts/font = ExtResource("7_on6eb")
+theme_override_font_sizes/font_size = 32
+text = "Score:
+"
+
+[node name="Score" type="Label" parent="ScoreBoard/MarginContainer/VBoxContainer/ScoreContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 11
+theme_override_constants/shadow_outline_size = 6
+theme_override_fonts/font = ExtResource("7_on6eb")
+theme_override_font_sizes/font_size = 32
+
+[connection signal="pressed" from="MovementControls/LeftButton" to="." method="_on_left_button_pressed"]
+[connection signal="released" from="MovementControls/LeftButton" to="." method="_on_left_button_released"]
+[connection signal="pressed" from="MovementControls/RightButton" to="." method="_on_right_button_pressed"]
+[connection signal="released" from="MovementControls/RightButton" to="." method="_on_right_button_released"]
+[connection signal="pressed" from="InteractionControls/Jump" to="." method="_on_jump_pressed"]
+[connection signal="released" from="InteractionControls/Jump" to="." method="_on_jump_released"]
+[connection signal="pressed" from="InteractionControls/Shoot" to="." method="_on_shoot_pressed"]
+[connection signal="released" from="InteractionControls/Shoot" to="." method="_on_shoot_released"]
+[connection signal="pressed" from="InteractionControls/Swing" to="." method="_on_swing_pressed"]
+[connection signal="released" from="InteractionControls/Swing" to="." method="_on_swing_released"]
+[connection signal="pressed" from="GameMenu/Pause" to="." method="_on_pause_pressed"]
+[connection signal="released" from="GameMenu/Pause" to="." method="_on_pause_released"]

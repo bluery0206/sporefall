@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://cc80gsp1ax2ug"]
+
+[node name="ClearFailedMenu" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.276476
+anchor_top = 0.141975
+anchor_right = 0.723524
+anchor_bottom = 0.858025
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ClearFailedLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Cllear failed"
+horizontal_alignment = 1
+
+[node name="ScoreContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="VBoxContainer/ScoreContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "SCORE:"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Score" type="Label" parent="VBoxContainer/ScoreContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "0
+"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 75
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="RestartLevelButton" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "RESTART LEVEL"
+
+[node name="LevelsButton" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Levels"
+
+[node name="HomeButton" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Home"

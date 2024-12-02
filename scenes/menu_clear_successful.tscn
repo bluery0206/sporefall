@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://cvpu5k41rc5tb"]
+
+[node name="ClearSuccessfulMenu" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.27691
+anchor_top = 0.0895062
+anchor_right = 0.723958
+anchor_bottom = 0.805556
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ClearSuccessfulLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+theme_override_colors/font_color = Color(0.101961, 0.831373, 0.0509804, 1)
+theme_override_colors/font_shadow_color = Color(1, 0.137255, 0.137255, 1)
+text = "Clear
+successfull!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScoreContainer"]
+layout_mode = 2
+
+[node name="OldBestScoreContainer" type="HBoxContainer" parent="VBoxContainer/ScoreContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="OldScoreLabel" type="Label" parent="VBoxContainer/ScoreContainer/VBoxContainer/OldBestScoreContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 16
+text = "OLD BEST SCORE:"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="OldScore" type="Label" parent="VBoxContainer/ScoreContainer/VBoxContainer/OldBestScoreContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 16
+text = "0
+"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="ScoreContainer" type="HBoxContainer" parent="VBoxContainer/ScoreContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="VBoxContainer/ScoreContainer/VBoxContainer/ScoreContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+theme_override_colors/font_color = Color(0.101961, 0.831373, 0.0509804, 1)
+theme_override_colors/font_shadow_color = Color(1, 0.137255, 0.137255, 1)
+text = "SCORE:"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Score" type="Label" parent="VBoxContainer/ScoreContainer/VBoxContainer/ScoreContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+theme_override_colors/font_color = Color(0.101961, 0.831373, 0.0509804, 1)
+theme_override_colors/font_shadow_color = Color(1, 0.137255, 0.137255, 1)
+text = "0
+"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 75
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="NextLevelButton" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Next Level"
+
+[node name="RestartLevelButton2" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "RESTART LEVEL"
+
+[node name="LevelsButton" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Levels"
+
+[node name="HomeButton" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Home"

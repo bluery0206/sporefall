@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://df40mmaw8wv8y"]
+
+[ext_resource type="Script" path="res://scripts/weapon_bullet.gd" id="1_otqtr"]
+[ext_resource type="Texture2D" uid="uid://doxkaq6cq0hpy" path="res://assets/sprites/bullet.png" id="2_27cjl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpk78"]
+size = Vector2(9, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kslqf"]
+atlas = ExtResource("2_27cjl")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxuq8"]
+atlas = ExtResource("2_27cjl")
+region = Rect2(0, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwb80"]
+atlas = ExtResource("2_27cjl")
+region = Rect2(0, 32, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g7664"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kslqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxuq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxuq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwb80")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="Bullet" type="Area2D"]
+physics_interpolation_mode = 1
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_otqtr")
+
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="DamageBox" type="CollisionShape2D" parent="."]
+position = Vector2(12.5, 0)
+shape = SubResource("RectangleShape2D_rpk78")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.568627)
+position = Vector2(0, -5.96046e-08)
+scale = Vector2(1, 0.59375)
+sprite_frames = SubResource("SpriteFrames_g7664")
+autoplay = "default"
+frame_progress = 0.863201
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_despawn"]

@@ -1,0 +1,196 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5dcciqlcal5u"]
+
+[ext_resource type="PackedScene" uid="uid://bua18cspj4ypj" path="res://scenes/view_template.tscn" id="1_jking"]
+[ext_resource type="Script" path="res://scripts/menus_main.gd" id="2_io6q0"]
+[ext_resource type="Theme" uid="uid://c3p20iwqadeyh" path="res://assets/sporefall.tres" id="3_1gr7k"]
+
+[node name="MainMenu" instance=ExtResource("1_jking")]
+script = ExtResource("2_io6q0")
+
+[node name="MenuHome" type="Control" parent="." index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuHome" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -257.5
+offset_top = -266.5
+offset_right = 257.5
+offset_bottom = 266.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="TitleLabel" type="Label" parent="MenuHome/VBoxContainer" index="0"]
+layout_mode = 2
+theme = ExtResource("3_1gr7k")
+theme_type_variation = &"HeaderLarge"
+text = "SPOREFALL"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuHome/VBoxContainer" index="1"]
+layout_mode = 2
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 75
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuHome/VBoxContainer/MarginContainer" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="ContinueButton" type="Button" parent="MenuHome/VBoxContainer/MarginContainer/VBoxContainer" index="0"]
+layout_mode = 2
+theme = ExtResource("3_1gr7k")
+theme_type_variation = &"SporeFall"
+text = "Continue"
+
+[node name="NewGameButton" type="Button" parent="MenuHome/VBoxContainer/MarginContainer/VBoxContainer" index="1"]
+layout_mode = 2
+theme = ExtResource("3_1gr7k")
+text = "NEW GAME"
+
+[node name="LevelsButton" type="Button" parent="MenuHome/VBoxContainer/MarginContainer/VBoxContainer" index="2"]
+layout_mode = 2
+text = "LEVELS"
+
+[node name="QuitButton" type="Button" parent="MenuHome/VBoxContainer/MarginContainer/VBoxContainer" index="3"]
+layout_mode = 2
+text = "QUIT"
+
+[node name="MenuConfirmQuit" type="Control" parent="." index="2"]
+visible = false
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuConfirmQuit" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -257.0
+offset_top = -207.0
+offset_right = 258.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="TitleLabel" type="Label" parent="MenuConfirmQuit/VBoxContainer" index="0"]
+layout_mode = 2
+theme = ExtResource("3_1gr7k")
+theme_type_variation = &"HeaderMedium"
+text = "quit?"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuConfirmQuit/VBoxContainer" index="1"]
+layout_mode = 2
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 75
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuConfirmQuit/VBoxContainer/MarginContainer" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="ConfirmButton" type="Button" parent="MenuConfirmQuit/VBoxContainer/MarginContainer/VBoxContainer" index="0"]
+layout_mode = 2
+text = "Confirm"
+
+[node name="CancelButton" type="Button" parent="MenuConfirmQuit/VBoxContainer/MarginContainer/VBoxContainer" index="1"]
+layout_mode = 2
+text = "cancel"
+
+[node name="StartNewGameConfirm" type="Control" parent="." index="3"]
+visible = false
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StartNewGameConfirm" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -257.0
+offset_top = -207.0
+offset_right = 258.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="TitleLabel" type="Label" parent="StartNewGameConfirm/VBoxContainer" index="0"]
+layout_mode = 2
+theme = ExtResource("3_1gr7k")
+theme_type_variation = &"HeaderMedium"
+text = "Start new game?"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="TitleLabel2" type="Label" parent="StartNewGameConfirm/VBoxContainer" index="1"]
+layout_mode = 2
+theme = ExtResource("3_1gr7k")
+theme_type_variation = &"TooltipLabel"
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.101961, 0.831373, 0.0509804, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 5
+text = "All stages will be reset."
+horizontal_alignment = 1
+uppercase = true
+
+[node name="MarginContainer" type="MarginContainer" parent="StartNewGameConfirm/VBoxContainer" index="2"]
+layout_mode = 2
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 75
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StartNewGameConfirm/VBoxContainer/MarginContainer" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="ConfirmButton" type="Button" parent="StartNewGameConfirm/VBoxContainer/MarginContainer/VBoxContainer" index="0"]
+layout_mode = 2
+text = "Confirm"
+
+[node name="CancelButton" type="Button" parent="StartNewGameConfirm/VBoxContainer/MarginContainer/VBoxContainer" index="1"]
+layout_mode = 2
+text = "cancel"
+
+[connection signal="button_up" from="MenuHome/VBoxContainer/MarginContainer/VBoxContainer/ContinueButton" to="." method="_continue"]
+[connection signal="button_up" from="MenuHome/VBoxContainer/MarginContainer/VBoxContainer/NewGameButton" to="." method="_new_game"]
+[connection signal="button_up" from="MenuHome/VBoxContainer/MarginContainer/VBoxContainer/LevelsButton" to="." method="_levels"]
+[connection signal="button_up" from="MenuHome/VBoxContainer/MarginContainer/VBoxContainer/QuitButton" to="." method="_quit"]
+[connection signal="button_up" from="MenuConfirmQuit/VBoxContainer/MarginContainer/VBoxContainer/ConfirmButton" to="." method="_confirm_quit"]
+[connection signal="button_up" from="MenuConfirmQuit/VBoxContainer/MarginContainer/VBoxContainer/CancelButton" to="." method="_cancel_quit"]
+[connection signal="button_up" from="StartNewGameConfirm/VBoxContainer/MarginContainer/VBoxContainer/ConfirmButton" to="." method="_confirm_new_game"]
+[connection signal="button_up" from="StartNewGameConfirm/VBoxContainer/MarginContainer/VBoxContainer/CancelButton" to="." method="_cancel_new_game"]

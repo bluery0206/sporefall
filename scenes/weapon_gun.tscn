@@ -1,0 +1,150 @@
+[gd_scene load_steps=15 format=3 uid="uid://cpc0achse8tih"]
+
+[ext_resource type="Texture2D" uid="uid://bil7eg61u3kxn" path="res://assets/sprites/attack.PNG" id="1_1wnau"]
+[ext_resource type="Script" path="res://scripts/weapon_gun.gd" id="2_joqms"]
+[ext_resource type="PackedScene" uid="uid://bflp6h2ayrosv" path="res://scenes/util_sound_effects.tscn" id="3_4tm7x"]
+[ext_resource type="AudioStream" uid="uid://bjkrkij5vs6yy" path="res://assets/sounds/shoot.mp3" id="3_m3lk7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ss6ny"]
+atlas = ExtResource("1_1wnau")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0u23m"]
+atlas = ExtResource("1_1wnau")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44uwl"]
+atlas = ExtResource("1_1wnau")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgsec"]
+atlas = ExtResource("1_1wnau")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12pc6"]
+atlas = ExtResource("1_1wnau")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qttr7"]
+atlas = ExtResource("1_1wnau")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_brvcq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ss6ny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0u23m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44uwl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgsec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgsec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12pc6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12pc6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qttr7")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 17.0
+}]
+
+[sub_resource type="Animation" id="Animation_n8pay"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sounds/Shoot:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_rw2ix"]
+resource_name = "shoot"
+length = 0.25
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [&"queue_free"],
+"method": &"call_deferred"
+}, {
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sounds/Shoot")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_random_pitch"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sounds/Shoot:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_76jfr"]
+_data = {
+"RESET": SubResource("Animation_n8pay"),
+"shoot": SubResource("Animation_rw2ix")
+}
+
+[node name="Gun" type="Node2D"]
+scale = Vector2(0.73, 0.73)
+script = ExtResource("2_joqms")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_brvcq")
+animation = &"shoot"
+frame = 7
+frame_progress = 1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_76jfr")
+}
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="Shoot" parent="Sounds" instance=ExtResource("3_4tm7x")]
+stream = ExtResource("3_m3lk7")

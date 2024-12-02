@@ -1,0 +1,612 @@
+[gd_scene load_steps=20 format=4 uid="uid://bli550uo5q7ib"]
+
+[ext_resource type="Texture2D" uid="uid://b2lhtw6ts8wh8" path="res://assets/sprites/world_tileset.png" id="1_nd0b2"]
+[ext_resource type="PackedScene" uid="uid://exqlcau7ho8m" path="res://scenes/util_game_manager.tscn" id="1_ubpw4"]
+[ext_resource type="PackedScene" uid="uid://bnonnp8p0oooc" path="res://scenes/util_background_music.tscn" id="2_crlbm"]
+[ext_resource type="PackedScene" uid="uid://cx6mirgjyg2ji" path="res://scenes/char_player.tscn" id="2_dhwtq"]
+[ext_resource type="PackedScene" uid="uid://c0baidal0kwg" path="res://scenes/util_damage_zone.tscn" id="3_kydsh"]
+[ext_resource type="PackedScene" uid="uid://cdir57c37efd3" path="res://scenes/char_enemy.tscn" id="4_jpali"]
+[ext_resource type="Texture2D" uid="uid://d3uxxiabvgxy" path="res://assets/bg.png" id="5_t02hq"]
+[ext_resource type="Script" path="res://scripts/menu_game_controls.gd" id="8_igm2y"]
+[ext_resource type="Texture2D" uid="uid://ctx1d7yk2e2vl" path="res://assets/buttons/left.png" id="9_pgtm2"]
+[ext_resource type="Texture2D" uid="uid://bdwaspgd62dur" path="res://assets/buttons/right.png" id="10_t4iyt"]
+[ext_resource type="Texture2D" uid="uid://3mu4ks1t5sdj" path="res://assets/buttons/up.png" id="11_0il62"]
+[ext_resource type="Texture2D" uid="uid://c0thbowrm7few" path="res://assets/buttons/shoot.png" id="12_74d0u"]
+[ext_resource type="Texture2D" uid="uid://cy8x4krbscdmf" path="res://assets/buttons/swing.png" id="13_xnoqn"]
+[ext_resource type="Texture2D" uid="uid://k2jynhsc00c7" path="res://assets/buttons/pause.png" id="14_jmkfc"]
+[ext_resource type="FontFile" uid="uid://bgqdam2blu0o1" path="res://assets/fonts/TerrorLetter-p7v11.ttf" id="15_ylmbf"]
+[ext_resource type="Script" path="res://scripts/menus_game.gd" id="16_eywv0"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_puiys"]
+texture = ExtResource("1_nd0b2")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:0/0 = 0
+9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:0/0 = 0
+10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6.27557, -8, 6.37835, -6.69333, 8, -4.48847, 8, 1.67938, -8, -0.795495, -8, -5.56847)
+11:0/0 = 0
+11:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.74524, -6.0988, 5.39169, -8, 8, -5.56847, 8, -3.44715, 8, -1.85616, -5.39169, -0.265165, -8, -2.03293, -8, -4.50781)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:1/0 = 0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:1/0 = 0
+9:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6.27557, -8, 6.37835, -6.69333, 8, -4.48847, 8, 1.67938, -8, -0.795495, -8, -5.56847)
+10:1/0 = 0
+10:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.74524, -6.0988, 6.0988, -5.92202, 8, -4.48847, 8, -0.972272, 6.27557, 0.972272, -5.21491, 1.32583, -8, -0.795495, -8, -4.50781)
+11:1/0 = 0
+11:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.74524, -6.0988, 5.39169, -8, 8, -5.56847, 8, -3.44715, 8, -1.85616, -5.39169, -0.265165, -8, -2.03293, -8, -4.50781)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:2/0 = 0
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:2/0 = 0
+8:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:2/0 = 0
+9:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6.27557, -8, 6.37835, -6.69333, 8, -4.48847, 8, 1.67938, -8, -0.795495, -8, -5.56847)
+10:2/0 = 0
+10:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.74524, -6.0988, 6.0988, -5.92202, 8, -4.48847, 8, -0.972272, 6.27557, 0.972272, -5.21491, 1.32583, -8, -0.795495, -8, -4.50781)
+11:2/0 = 0
+11:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.74524, -6.0988, 5.39169, -8, 8, -5.56847, 8, -3.44715, 8, -1.85616, -5.39169, -0.265165, -8, -2.03293, -8, -4.50781)
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+3:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+6:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+5:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_j0qph"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_puiys")
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_adfqd"]
+
+[node name="LevelOne" type="Node2D"]
+
+[node name="GameManager" parent="." instance=ExtResource("1_ubpw4")]
+unique_name_in_owner = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_offset = Vector2(8.17, 0)
+
+[node name="Parallax2D" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-528, 34)
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(250, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Parallax2D"]
+position = Vector2(293, -29)
+scale = Vector2(0.169531, 0.172222)
+texture = ExtResource("5_t02hq")
+
+[node name="Parallax2D2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(1.11, 1.11)
+motion_mirroring = Vector2(200, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Parallax2D2"]
+position = Vector2(-304, 52)
+scale = Vector2(1.28274, 0.970244)
+texture = ExtResource("1_nd0b2")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(-4.76837e-07, -9.53674e-07)
+scale = Vector2(0.775, 0.775)
+tile_map_data = PackedByteArray("AAD7/wYAAAAAAAAAAAD8/wYAAAAAAAAAAAD9/wYAAAAAAAAAAAD+/wYAAAAAAAAAAAD//wYAAAAAAAAAAAAAAAYAAAAAAAAAAAABAAYAAAAAAAAAAAACAAYAAAAAAAAAAAADAAYAAAAAAAAAAADt/wYAAAAAAAAAAADu/wYAAAAAAAAAAADv/wYAAAAAAAAAAADw/wYAAAAAAAAAAADx/wYAAAAAAAAAAADy/wYAAAAAAAAAAADz/wYAAAAAAAAAAAD0/wYAAAAAAAAAAAD1/wYAAAAAAAAAAAD2/wYAAAAAAAAAAAD3/wYAAAAAAAAAAAD4/wYAAAAAAAAAAAD5/wYAAAAAAAAAAAD6/wYAAAAAAAAAAAAEAAYAAAAAAAAAAAAFAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAHAAYAAAAAAAEAAAAIAAYAAAAAAAEAAAAJAAYAAAAAAAEAAAAKAAYAAAAAAAEAAAALAAYAAAAAAAEAAAAMAAYAAAAAAAEAAAANAAYAAAAAAAEAAAAOAAYAAAAAAAEAAAAPAAYAAAAAAAEAAAAQAAYAAAAAAAEAAAARAAYAAAAAAAEAAAASAAYAAAAAAAEAAAATAAYAAAAAAAEAAAAUAAYAAAAAAAEAAAAVAAYAAAABAAAAAAAWAAYAAAABAAAAAAAXAAYAAAABAAAAAAATAAUAAAAAAAEAAAASAAUAAAAAAAEAAAARAAUAAAAAAAEAAAAQAAUAAAAAAAEAAAAPAAUAAAAAAAEAAAAOAAUAAAAAAAAAAAANAAUAAAAAAAAAAAAMAAUAAAAAAAAAAAALAAUAAAAAAAAAAAAKAAUAAAAAAAAAAAAJAAUAAAAAAAAAAAAIAAUAAAAAAAAAAAAHAAUAAAAAAAAAAAAOAAQAAAAAAAAAAAAPAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAARAAQAAAAAAAAAAAASAAQAAAAAAAAAAAATAAQAAAAAAAAAAAAUAAQAAAAAAAAAAAAVAAQAAAABAAAAAAAWAAQAAAABAAAAAAAXAAQAAAABAAAAAAAYAAQAAAABAAAAAAAZAAQAAAABAAAAAAAZAAMAAAABAAAAAAAYAAMAAAABAAAAAAAXAAMAAAAAAAAAAAAWAAMAAAAAAAAAAAAVAAMAAAAAAAAAAAAaAAMAAAABAAAAAAAaAAIAAAABAAAAAAAZAAIAAAAAAAAAAAAYAAIAAAAAAAAAAAAbAAIAAAABAAAAAAAcAAIAAAABAAAAAAAcAAEAAAAAAAAAAAAbAAEAAAAAAAAAAAAaAAEAAAAAAAAAAAAdAAEAAAABAAAAAAAeAAAAAAAAAAAAAAAdAAAAAAAAAAAAAAAeAAEAAAABAAAAAAAeAAIAAAABAAAAAAAeAAMAAAABAAAAAAAdAAMAAAABAAAAAAAcAAMAAAABAAAAAAAbAAMAAAABAAAAAAAbAAQAAAABAAAAAAAaAAQAAAABAAAAAAAZAAUAAAABAAAAAAAaAAUAAAABAAAAAAAbAAUAAAABAAAAAAAcAAQAAAABAAAAAAAdAAIAAAABAAAAAAAUAAUAAAAAAAEAAAAVAAUAAAABAAAAAAAWAAUAAAABAAAAAAAXAAUAAAABAAAAAAAYAAUAAAABAAAAAAAYAAYAAAABAAAAAAAZAAYAAAABAAAAAAAaAAYAAAABAAAAAAAbAAYAAAABAAAAAAAYAAcAAAABAAAAAAAYAAgAAAABAAAAAAAYAAkAAAABAAAAAAAYAAoAAAABAAAAAAAYAAsAAAABAAAAAAAYAAwAAAABAAAAAAAYAA0AAAABAAAAAAAZAAcAAAABAAAAAAAZAAgAAAABAAAAAAAZAAkAAAABAAAAAAAZAAoAAAABAAAAAAAZAAsAAAABAAAAAAAZAAwAAAABAAAAAAAZAA0AAAABAAAAAAAaAAcAAAABAAAAAAAaAAgAAAABAAAAAAAaAAkAAAABAAAAAAAaAAoAAAABAAAAAAAaAAsAAAABAAAAAAAaAAwAAAABAAAAAAAaAA0AAAABAAAAAAAbAAcAAAABAAAAAAAbAAgAAAABAAAAAAAbAAkAAAABAAAAAAAbAAoAAAABAAAAAAAbAAsAAAABAAAAAAAbAAwAAAABAAAAAAAbAA0AAAABAAAAAAAcAAUAAAABAAAAAAAcAAYAAAABAAAAAAAcAAcAAAABAAAAAAAcAAgAAAABAAAAAAAcAAkAAAABAAAAAAAcAAoAAAABAAAAAAAcAAsAAAABAAAAAAAcAAwAAAABAAAAAAAcAA0AAAABAAAAAAAdAAQAAAABAAAAAAAdAAUAAAABAAAAAAAdAAYAAAABAAAAAAAdAAcAAAABAAAAAAAdAAgAAAABAAAAAAAdAAkAAAABAAAAAAAdAAoAAAABAAAAAAAdAAsAAAABAAAAAAAdAAwAAAABAAAAAAAdAA0AAAABAAAAAADs/wYAAAAAAAEAAADs/wcAAAAAAAEAAADs/wgAAAAAAAEAAADs/wkAAAABAAAAAADs/woAAAABAAAAAADs/wsAAAABAAAAAADs/wwAAAABAAAAAADs/w0AAAABAAAAAADs/w4AAAAIAAEAAADs/w8AAAAIAAEAAADt/wcAAAAAAAEAAADt/wgAAAAAAAEAAADt/wkAAAABAAAAAADt/woAAAABAAAAAADt/wsAAAABAAAAAADt/wwAAAABAAAAAADt/w0AAAABAAAAAADt/w4AAAAIAAEAAADt/w8AAAAIAAEAAADu/wcAAAAAAAEAAADu/wgAAAAAAAEAAADu/wkAAAABAAAAAADu/woAAAABAAAAAADu/wsAAAABAAAAAADu/wwAAAABAAAAAADu/w0AAAABAAAAAADu/w4AAAAIAAEAAADu/w8AAAAIAAEAAADv/wcAAAAAAAEAAADv/wgAAAAAAAEAAADv/wkAAAABAAAAAADv/woAAAABAAAAAADv/wsAAAABAAAAAADv/wwAAAABAAAAAADv/w0AAAABAAAAAADv/w4AAAAIAAEAAADv/w8AAAAIAAEAAADw/wcAAAAAAAEAAADw/wgAAAAAAAEAAADw/wkAAAABAAAAAADw/woAAAABAAAAAADw/wsAAAABAAAAAADw/wwAAAABAAAAAADw/w0AAAABAAAAAADw/w4AAAAIAAEAAADw/w8AAAAIAAEAAADx/wcAAAAAAAEAAADx/wgAAAAAAAEAAADx/wkAAAABAAAAAADx/woAAAABAAAAAADx/wsAAAABAAAAAADx/wwAAAABAAAAAADx/w0AAAABAAAAAADx/w4AAAAIAAEAAADx/w8AAAAIAAEAAADy/wcAAAAAAAEAAADy/wgAAAAAAAEAAADy/wkAAAABAAAAAADy/woAAAABAAAAAADy/wsAAAABAAAAAADy/wwAAAABAAAAAADy/w0AAAABAAAAAADy/w4AAAAIAAEAAADy/w8AAAAIAAEAAADz/wcAAAAAAAEAAADz/wgAAAAAAAEAAADz/wkAAAABAAAAAADz/woAAAABAAAAAADz/wsAAAABAAAAAADz/wwAAAABAAAAAADz/w0AAAABAAAAAADz/w4AAAAIAAEAAADz/w8AAAAIAAEAAAD0/wcAAAAAAAEAAAD0/wgAAAAAAAEAAAD0/wkAAAABAAAAAAD0/woAAAABAAAAAAD0/wsAAAABAAAAAAD0/wwAAAABAAAAAAD0/w0AAAABAAAAAAD0/w4AAAAIAAEAAAD0/w8AAAAIAAEAAAD1/wcAAAAAAAEAAAD1/wgAAAAAAAEAAAD1/wkAAAABAAAAAAD1/woAAAABAAAAAAD1/wsAAAABAAAAAAD1/wwAAAABAAAAAAD1/w0AAAABAAAAAAD1/w4AAAAIAAEAAAD1/w8AAAAIAAEAAAD2/wcAAAAAAAEAAAD2/wgAAAAAAAEAAAD2/wkAAAABAAAAAAD2/woAAAABAAAAAAD2/wsAAAABAAAAAAD2/wwAAAABAAAAAAD2/w0AAAABAAAAAAD2/w4AAAAIAAEAAAD2/w8AAAAIAAEAAAD3/wcAAAAAAAEAAAD3/wgAAAAAAAEAAAD3/wkAAAABAAAAAAD3/woAAAABAAAAAAD3/wsAAAABAAAAAAD3/wwAAAABAAAAAAD3/w0AAAABAAAAAAD3/w4AAAAIAAEAAAD3/w8AAAAIAAEAAAD4/wcAAAAAAAEAAAD4/wgAAAAAAAEAAAD4/wkAAAABAAAAAAD4/woAAAABAAAAAAD4/wsAAAABAAAAAAD4/wwAAAABAAAAAAD4/w0AAAABAAAAAAD4/w4AAAAIAAEAAAD4/w8AAAAIAAEAAAD5/wcAAAAAAAEAAAD5/wgAAAAAAAEAAAD5/wkAAAABAAAAAAD5/woAAAABAAAAAAD5/wsAAAABAAAAAAD5/wwAAAABAAAAAAD5/w0AAAABAAAAAAD5/w4AAAAIAAEAAAD5/w8AAAAIAAEAAAD6/wcAAAAAAAEAAAD6/wgAAAAAAAEAAAD6/wkAAAABAAAAAAD6/woAAAABAAAAAAD6/wsAAAABAAAAAAD6/wwAAAABAAAAAAD6/w0AAAABAAAAAAD6/w4AAAAIAAEAAAD6/w8AAAAIAAEAAAD7/wcAAAAAAAEAAAD7/wgAAAAAAAEAAAD7/wkAAAABAAAAAAD7/woAAAABAAAAAAD7/wsAAAABAAAAAAD7/wwAAAABAAAAAAD7/w0AAAABAAAAAAD7/w4AAAAIAAEAAAD7/w8AAAAIAAEAAAD8/wcAAAAAAAEAAAD8/wgAAAAAAAEAAAD8/wkAAAABAAAAAAD8/woAAAABAAAAAAD8/wsAAAABAAAAAAD8/wwAAAABAAAAAAD8/w0AAAABAAAAAAD8/w4AAAAIAAEAAAD8/w8AAAAIAAEAAAD9/wcAAAAAAAEAAAD9/wgAAAAAAAEAAAD9/wkAAAABAAAAAAD9/woAAAABAAAAAAD9/wsAAAABAAAAAAD9/wwAAAABAAAAAAD9/w0AAAABAAAAAAD9/w4AAAAIAAEAAAD9/w8AAAAIAAEAAAD+/wcAAAAAAAEAAAD+/wgAAAAAAAEAAAD+/wkAAAABAAAAAAD+/woAAAABAAAAAAD+/wsAAAABAAAAAAD+/wwAAAABAAAAAAD+/w0AAAABAAAAAAD+/w4AAAAIAAEAAAD+/w8AAAAIAAEAAAD//wcAAAAAAAEAAAD//wgAAAAAAAEAAAD//wkAAAABAAAAAAD//woAAAABAAAAAAD//wsAAAABAAAAAAD//wwAAAABAAAAAAD//w0AAAABAAAAAAD//w4AAAAIAAEAAAD//w8AAAAIAAEAAAAAAAcAAAAAAAEAAAAAAAgAAAAAAAEAAAAAAAkAAAABAAAAAAAAAAoAAAABAAAAAAAAAAsAAAABAAAAAAAAAAwAAAABAAAAAAAAAA0AAAABAAAAAAAAAA4AAAAIAAEAAAAAAA8AAAAIAAEAAAABAAcAAAAAAAEAAAABAAgAAAAAAAEAAAABAAkAAAABAAAAAAABAAoAAAABAAAAAAABAAsAAAABAAAAAAABAAwAAAABAAAAAAABAA0AAAABAAAAAAABAA4AAAAIAAEAAAABAA8AAAAIAAEAAAACAAcAAAAAAAEAAAACAAgAAAAAAAEAAAACAAkAAAABAAAAAAACAAoAAAABAAAAAAACAAsAAAABAAAAAAACAAwAAAABAAAAAAACAA0AAAABAAAAAAACAA4AAAAIAAEAAAACAA8AAAAIAAEAAAADAAcAAAAAAAEAAAADAAgAAAAAAAEAAAADAAkAAAABAAAAAAADAAoAAAABAAAAAAADAAsAAAABAAAAAAADAAwAAAABAAAAAAADAA0AAAABAAAAAAADAA4AAAAIAAEAAAADAA8AAAAIAAEAAAAEAAcAAAAAAAEAAAAEAAgAAAAAAAEAAAAEAAkAAAABAAAAAAAEAAoAAAABAAAAAAAEAAsAAAABAAAAAAAEAAwAAAABAAAAAAAEAA0AAAABAAAAAAAEAA4AAAAIAAEAAAAEAA8AAAAIAAEAAAAFAAcAAAAAAAEAAAAFAAgAAAAAAAEAAAAFAAkAAAABAAAAAAAFAAoAAAABAAAAAAAFAAsAAAABAAAAAAAFAAwAAAABAAAAAAAFAA0AAAABAAAAAAAFAA4AAAAIAAEAAAAFAA8AAAAIAAEAAAAGAAcAAAAAAAEAAAAGAAgAAAAAAAEAAAAGAAkAAAABAAAAAAAGAAoAAAABAAAAAAAGAAsAAAABAAAAAAAGAAwAAAABAAAAAAAGAA0AAAABAAAAAAAGAA4AAAAIAAEAAAAGAA8AAAAIAAEAAAAHAAcAAAAAAAEAAAAHAAgAAAABAAAAAAAHAAkAAAABAAAAAAAHAAoAAAABAAAAAAAHAAsAAAABAAAAAAAHAAwAAAABAAAAAAAHAA0AAAABAAAAAAAHAA4AAAAIAAEAAAAHAA8AAAAIAAEAAAAIAAcAAAAAAAEAAAAIAAgAAAABAAAAAAAIAAkAAAABAAAAAAAIAAoAAAABAAAAAAAIAAsAAAABAAAAAAAIAAwAAAABAAAAAAAIAA0AAAABAAAAAAAIAA4AAAAIAAEAAAAIAA8AAAAIAAEAAAAJAAcAAAAAAAEAAAAJAAgAAAABAAAAAAAJAAkAAAABAAAAAAAJAAoAAAABAAAAAAAJAAsAAAABAAAAAAAJAAwAAAABAAAAAAAJAA0AAAABAAAAAAAJAA4AAAAIAAEAAAAJAA8AAAAIAAEAAAAKAAcAAAAAAAEAAAAKAAgAAAABAAAAAAAKAAkAAAABAAAAAAAKAAoAAAABAAAAAAAKAAsAAAABAAAAAAAKAAwAAAABAAAAAAAKAA0AAAABAAAAAAAKAA4AAAAIAAEAAAAKAA8AAAAIAAEAAAALAAcAAAAAAAEAAAALAAgAAAABAAAAAAALAAkAAAABAAAAAAALAAoAAAABAAAAAAALAAsAAAABAAAAAAALAAwAAAABAAAAAAALAA0AAAABAAAAAAALAA4AAAAIAAEAAAALAA8AAAAIAAEAAAAMAAcAAAAAAAEAAAAMAAgAAAABAAAAAAAMAAkAAAABAAAAAAAMAAoAAAABAAAAAAAMAAsAAAABAAAAAAAMAAwAAAABAAAAAAAMAA0AAAABAAAAAAAMAA4AAAAIAAEAAAAMAA8AAAAIAAEAAAANAAcAAAAAAAEAAAANAAgAAAABAAAAAAANAAkAAAABAAAAAAANAAoAAAABAAAAAAANAAsAAAABAAAAAAANAAwAAAABAAAAAAANAA0AAAABAAAAAAANAA4AAAAIAAEAAAANAA8AAAAIAAEAAAAOAAcAAAAAAAEAAAAOAAgAAAABAAAAAAAOAAkAAAABAAAAAAAOAAoAAAABAAAAAAAOAAsAAAABAAAAAAAOAAwAAAABAAAAAAAOAA0AAAABAAAAAAAOAA4AAAAIAAEAAAAOAA8AAAAIAAEAAAAPAAcAAAABAAAAAAAPAAgAAAABAAAAAAAPAAkAAAABAAAAAAAPAAoAAAABAAAAAAAPAAsAAAABAAAAAAAPAAwAAAABAAAAAAAPAA0AAAABAAAAAAAPAA4AAAAIAAEAAAAPAA8AAAAIAAEAAAAQAAcAAAABAAAAAAAQAAgAAAABAAAAAAAQAAkAAAABAAAAAAAQAAoAAAABAAAAAAAQAAsAAAABAAAAAAAQAAwAAAABAAAAAAAQAA0AAAABAAAAAAAQAA4AAAAIAAEAAAAQAA8AAAAIAAEAAAARAAcAAAABAAAAAAARAAgAAAABAAAAAAARAAkAAAABAAAAAAARAAoAAAABAAAAAAARAAsAAAABAAAAAAARAAwAAAABAAAAAAARAA0AAAABAAAAAAARAA4AAAAIAAEAAAARAA8AAAAIAAEAAAASAAcAAAABAAAAAAASAAgAAAABAAAAAAASAAkAAAABAAAAAAASAAoAAAABAAAAAAASAAsAAAABAAAAAAASAAwAAAABAAAAAAASAA0AAAABAAAAAAASAA4AAAAIAAEAAAASAA8AAAAIAAEAAAATAAcAAAABAAAAAAATAAgAAAABAAAAAAATAAkAAAABAAAAAAATAAoAAAABAAAAAAATAAsAAAABAAAAAAATAAwAAAABAAAAAAATAA0AAAABAAAAAAATAA4AAAAIAAEAAAATAA8AAAAIAAEAAAAUAAcAAAABAAAAAAAUAAgAAAABAAAAAAAUAAkAAAABAAAAAAAUAAoAAAABAAAAAAAUAAsAAAABAAAAAAAUAAwAAAABAAAAAAAUAA0AAAABAAAAAAAUAA4AAAAIAAEAAAAUAA8AAAAIAAEAAAAVAAcAAAABAAAAAAAVAAgAAAABAAAAAAAVAAkAAAABAAAAAAAVAAoAAAABAAAAAAAVAAsAAAABAAAAAAAVAAwAAAABAAAAAAAVAA0AAAABAAAAAAAVAA4AAAAIAAEAAAAVAA8AAAAIAAEAAAAWAAcAAAABAAAAAAAWAAgAAAABAAAAAAAWAAkAAAABAAAAAAAWAAoAAAABAAAAAAAWAAsAAAABAAAAAAAWAAwAAAABAAAAAAAWAA0AAAABAAAAAAAWAA4AAAAIAAEAAAAWAA8AAAAIAAEAAAAXAAcAAAABAAAAAAAXAAgAAAABAAAAAAAXAAkAAAABAAAAAAAXAAoAAAABAAAAAAAXAAsAAAABAAAAAAAXAAwAAAABAAAAAAAXAA0AAAABAAAAAAAXAA4AAAAIAAEAAAAXAA8AAAAIAAEAAAAYAA4AAAAIAAEAAAAYAA8AAAAIAAEAAAAZAA4AAAAIAAEAAAAZAA8AAAAIAAEAAAAaAA4AAAAIAAEAAAAaAA8AAAAIAAEAAADb/wYAAAAAAAEAAADb/wcAAAAAAAEAAADb/wgAAAAAAAEAAADb/wkAAAABAAAAAADb/woAAAABAAAAAADb/wsAAAABAAAAAADb/wwAAAABAAAAAADb/w0AAAABAAAAAADb/w4AAAAIAAEAAADc/wYAAAAAAAEAAADc/wcAAAAAAAEAAADc/wgAAAAAAAEAAADc/wkAAAABAAAAAADc/woAAAABAAAAAADc/wsAAAABAAAAAADc/wwAAAABAAAAAADc/w0AAAABAAAAAADc/w4AAAAIAAEAAADd/wYAAAAAAAEAAADd/wcAAAAAAAEAAADd/wgAAAAAAAEAAADd/wkAAAABAAAAAADd/woAAAABAAAAAADd/wsAAAABAAAAAADd/wwAAAABAAAAAADd/w0AAAABAAAAAADd/w4AAAAIAAEAAADe/wYAAAAAAAEAAADe/wcAAAAAAAEAAADe/wgAAAAAAAEAAADe/wkAAAABAAAAAADe/woAAAABAAAAAADe/wsAAAABAAAAAADe/wwAAAABAAAAAADe/w0AAAABAAAAAADe/w4AAAAIAAEAAADf/wYAAAAAAAEAAADf/wcAAAAAAAEAAADf/wgAAAAAAAEAAADf/wkAAAABAAAAAADf/woAAAABAAAAAADf/wsAAAABAAAAAADf/wwAAAABAAAAAADf/w0AAAABAAAAAADf/w4AAAAIAAEAAADg/wYAAAAAAAEAAADg/wcAAAAAAAEAAADg/wgAAAAAAAEAAADg/wkAAAABAAAAAADg/woAAAABAAAAAADg/wsAAAABAAAAAADg/wwAAAABAAAAAADg/w0AAAABAAAAAADg/w4AAAAIAAEAAADh/wYAAAAAAAEAAADh/wcAAAAAAAEAAADh/wgAAAAAAAEAAADh/wkAAAABAAAAAADh/woAAAABAAAAAADh/wsAAAABAAAAAADh/wwAAAABAAAAAADh/w0AAAABAAAAAADh/w4AAAAIAAEAAADi/wYAAAAAAAEAAADi/wcAAAAAAAEAAADi/wgAAAAAAAEAAADi/wkAAAABAAAAAADi/woAAAABAAAAAADi/wsAAAABAAAAAADi/wwAAAABAAAAAADi/w0AAAABAAAAAADi/w4AAAAIAAEAAADj/wYAAAAAAAEAAADj/wcAAAAAAAEAAADj/wgAAAAAAAEAAADj/wkAAAABAAAAAADj/woAAAABAAAAAADj/wsAAAABAAAAAADj/wwAAAABAAAAAADj/w0AAAABAAAAAADj/w4AAAAIAAEAAADk/wYAAAAAAAEAAADk/wcAAAAAAAEAAADk/wgAAAAAAAEAAADk/wkAAAABAAAAAADk/woAAAABAAAAAADk/wsAAAABAAAAAADk/wwAAAABAAAAAADk/w0AAAABAAAAAADk/w4AAAAIAAEAAADl/wYAAAAAAAEAAADl/wcAAAAAAAEAAADl/wgAAAAAAAEAAADl/wkAAAABAAAAAADl/woAAAABAAAAAADl/wsAAAABAAAAAADl/wwAAAABAAAAAADl/w0AAAABAAAAAADl/w4AAAAIAAEAAADm/wYAAAAAAAEAAADm/wcAAAAAAAEAAADm/wgAAAAAAAEAAADm/wkAAAABAAAAAADm/woAAAABAAAAAADm/wsAAAABAAAAAADm/wwAAAABAAAAAADm/w0AAAABAAAAAADm/w4AAAAIAAEAAADn/wYAAAAAAAEAAADn/wcAAAAAAAEAAADn/wgAAAAAAAEAAADn/wkAAAABAAAAAADn/woAAAABAAAAAADn/wsAAAABAAAAAADn/wwAAAABAAAAAADn/w0AAAABAAAAAADn/w4AAAAIAAEAAADo/wYAAAAAAAEAAADo/wcAAAAAAAEAAADo/wgAAAAAAAEAAADo/wkAAAABAAAAAADo/woAAAABAAAAAADo/wsAAAABAAAAAADo/wwAAAABAAAAAADo/w0AAAABAAAAAADo/w4AAAAIAAEAAADp/wYAAAAAAAEAAADp/wcAAAAAAAEAAADp/wgAAAAAAAEAAADp/wkAAAABAAAAAADp/woAAAABAAAAAADp/wsAAAABAAAAAADp/wwAAAABAAAAAADp/w0AAAABAAAAAADp/w4AAAAIAAEAAADq/wYAAAAAAAEAAADq/wcAAAAAAAEAAADq/wgAAAAAAAEAAADq/wkAAAABAAAAAADq/woAAAABAAAAAADq/wsAAAABAAAAAADq/wwAAAABAAAAAADq/w0AAAABAAAAAADq/w4AAAAIAAEAAADr/wYAAAAAAAEAAADr/wcAAAAAAAEAAADr/wgAAAAAAAEAAADr/wkAAAABAAAAAADr/woAAAABAAAAAADr/wsAAAABAAAAAADr/wwAAAABAAAAAADr/w0AAAABAAAAAADr/w4AAAAIAAEAAADa/wUAAAAAAAAAAADb/wUAAAAAAAAAAADc/wUAAAAAAAAAAADd/wUAAAAAAAAAAADe/wUAAAAAAAAAAADf/wUAAAAAAAAAAADg/wUAAAAAAAAAAADh/wUAAAAAAAAAAADi/wUAAAAAAAAAAADj/wUAAAAAAAAAAADk/wUAAAAAAAAAAADl/wUAAAAAAAAAAADm/wUAAAAAAAAAAADn/wUAAAAAAAAAAADo/wUAAAAAAAAAAADp/wUAAAAAAAAAAADq/wUAAAAAAAAAAADr/wUAAAAAAAAAAADs/wUAAAAAAAAAAADa/wYAAAAAAAEAAADa/wcAAAAAAAEAAADa/wgAAAAAAAEAAADa/wkAAAAAAAEAAADa/woAAAAAAAEAAADa/wsAAAAAAAEAAADa/wwAAAAAAAEAAADa/w0AAAAAAAEAAADa/w4AAAAAAAEAAADb/w8AAAAIAAEAAADc/w8AAAAIAAEAAADd/w8AAAAIAAEAAADe/w8AAAAIAAEAAADf/w8AAAAIAAEAAADg/w8AAAAIAAEAAADh/w8AAAAIAAEAAADi/w8AAAAIAAEAAADj/w8AAAAIAAEAAADk/w8AAAAIAAEAAADl/w8AAAAIAAEAAADm/w8AAAAIAAEAAADn/w8AAAAIAAEAAADo/w8AAAAIAAEAAADp/w8AAAAIAAEAAADq/w8AAAAIAAEAAADr/w8AAAAIAAEAAAAbAA4AAAAIAAEAAAAbAA8AAAAIAAEAAAAcAA4AAAAIAAEAAAAcAA8AAAAIAAEAAAAdAA4AAAAIAAEAAAAdAA8AAAAIAAEAAAAeAA4AAAAIAAEAAAAeAA8AAAAIAAEAAAA=")
+tile_set = SubResource("TileSet_j0qph")
+
+[node name="DamageZone" parent="." instance=ExtResource("3_kydsh")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageZone"]
+position = Vector2(0, 250)
+shape = SubResource("WorldBoundaryShape2D_adfqd")
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="BackgroundMusicPlayer" parent="Sounds" instance=ExtResource("2_crlbm")]
+
+[node name="Player" parent="." instance=ExtResource("2_dhwtq")]
+position = Vector2(-282, 4)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("4_jpali")]
+position = Vector2(110, -7)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameControls" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_igm2y")
+
+[node name="MovementControls" type="Control" parent="CanvasLayer/GameControls"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+
+[node name="LeftButton" type="TouchScreenButton" parent="CanvasLayer/GameControls/MovementControls"]
+position = Vector2(56, -154)
+scale = Vector2(1.62, 1.62)
+texture_normal = ExtResource("9_pgtm2")
+action = "left"
+
+[node name="RightButton" type="TouchScreenButton" parent="CanvasLayer/GameControls/MovementControls"]
+position = Vector2(217, -154)
+scale = Vector2(1.62, 1.62)
+texture_normal = ExtResource("10_t4iyt")
+action = "right"
+
+[node name="InteractionControls" type="Control" parent="CanvasLayer/GameControls"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Jump" type="TouchScreenButton" parent="CanvasLayer/GameControls/InteractionControls"]
+position = Vector2(-146, -114)
+scale = Vector2(1.62, 1.62)
+texture_normal = ExtResource("11_0il62")
+action = "jump"
+
+[node name="Shoot" type="TouchScreenButton" parent="CanvasLayer/GameControls/InteractionControls"]
+position = Vector2(-150, -240)
+scale = Vector2(1.62, 1.62)
+texture_normal = ExtResource("12_74d0u")
+action = "shoot"
+
+[node name="Swing" type="TouchScreenButton" parent="CanvasLayer/GameControls/InteractionControls"]
+position = Vector2(-278, -140)
+scale = Vector2(1.62, 1.62)
+texture_normal = ExtResource("13_xnoqn")
+action = "swing"
+
+[node name="GameMenu" type="Control" parent="CanvasLayer/GameControls"]
+top_level = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 3.0
+offset_right = 3.0
+grow_horizontal = 2
+
+[node name="Pause" type="TouchScreenButton" parent="CanvasLayer/GameControls/GameMenu"]
+position = Vector2(-21, 27)
+scale = Vector2(0.65625, 0.65625)
+texture_normal = ExtResource("14_jmkfc")
+action = "pause"
+
+[node name="ScoreBoard" type="Control" parent="CanvasLayer/GameControls"]
+layout_mode = 1
+anchors_preset = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/GameControls/ScoreBoard"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameControls/ScoreBoard/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="CanvasLayer/GameControls/ScoreBoard/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 11
+theme_override_constants/shadow_outline_size = 6
+theme_override_fonts/font = ExtResource("15_ylmbf")
+theme_override_font_sizes/font_size = 32
+text = "Score:
+"
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/GameControls/ScoreBoard/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 11
+theme_override_constants/shadow_outline_size = 6
+theme_override_fonts/font = ExtResource("15_ylmbf")
+theme_override_font_sizes/font_size = 32
+
+[node name="MenusGame" type="Control" parent="CanvasLayer"]
+visible = false
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("16_eywv0")
+
+[node name="Background" type="Sprite2D" parent="CanvasLayer/MenusGame"]
+position = Vector2(716, 433)
+scale = Vector2(0.936111, 0.936111)
+texture = ExtResource("5_t02hq")
+
+[node name="MenuClearFailed" type="Control" parent="CanvasLayer/MenusGame"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MenusGame/MenuClearFailed"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.276476
+anchor_top = 0.141975
+anchor_right = 0.723524
+anchor_bottom = 0.858025
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ClearFailedLabel" type="Label" parent="CanvasLayer/MenusGame/MenuClearFailed/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Cllear failed"
+horizontal_alignment = 1
+
+[node name="ScoreContainer" type="HBoxContainer" parent="CanvasLayer/MenusGame/MenuClearFailed/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/MenusGame/MenuClearFailed/VBoxContainer/ScoreContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "SCORE:"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Score" type="Label" parent="CanvasLayer/MenusGame/MenuClearFailed/VBoxContainer/ScoreContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "0
+"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MenusGame/MenuClearFailed/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 75
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MenusGame/MenuClearFailed/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="RestartLevelButton" type="Button" parent="CanvasLayer/MenusGame/MenuClearFailed/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "RESTART LEVEL"
+
+[node name="LevelsButton" type="Button" parent="CanvasLayer/MenusGame/MenuClearFailed/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Levels"
+
+[node name="HomeButton" type="Button" parent="CanvasLayer/MenusGame/MenuClearFailed/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Home"
+
+[node name="MenuClearSuccessful" type="Control" parent="CanvasLayer/MenusGame"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MenusGame/MenuClearSuccessful"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.27691
+anchor_top = 0.0895062
+anchor_right = 0.723958
+anchor_bottom = 0.805556
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ClearSuccessfulLabel" type="Label" parent="CanvasLayer/MenusGame/MenuClearSuccessful/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+theme_override_colors/font_color = Color(0.101961, 0.831373, 0.0509804, 1)
+theme_override_colors/font_shadow_color = Color(1, 0.137255, 0.137255, 1)
+text = "Clear
+successfull!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreContainer" type="HBoxContainer" parent="CanvasLayer/MenusGame/MenuClearSuccessful/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/MenusGame/MenuClearSuccessful/VBoxContainer/ScoreContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+theme_override_colors/font_color = Color(0.101961, 0.831373, 0.0509804, 1)
+theme_override_colors/font_shadow_color = Color(1, 0.137255, 0.137255, 1)
+text = "SCORE:"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Score" type="Label" parent="CanvasLayer/MenusGame/MenuClearSuccessful/VBoxContainer/ScoreContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+theme_override_colors/font_color = Color(0.101961, 0.831373, 0.0509804, 1)
+theme_override_colors/font_shadow_color = Color(1, 0.137255, 0.137255, 1)
+text = "0
+"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MenusGame/MenuClearSuccessful/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 75
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MenusGame/MenuClearSuccessful/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="RestartLevelButton" type="Button" parent="CanvasLayer/MenusGame/MenuClearSuccessful/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "RESTART LEVEL"
+
+[node name="LevelsButton" type="Button" parent="CanvasLayer/MenusGame/MenuClearSuccessful/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Levels"
+
+[node name="HomeButton" type="Button" parent="CanvasLayer/MenusGame/MenuClearSuccessful/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Home"
+
+[node name="MenuPause" type="Control" parent="CanvasLayer/MenusGame"]
+visible = false
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MenusGame/MenuPause"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -257.0
+offset_top = -266.0
+offset_right = 258.0
+offset_bottom = 198.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="GamePausedMenu" type="Label" parent="CanvasLayer/MenusGame/MenuPause/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Game paused"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MenusGame/MenuPause/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 75
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MenusGame/MenuPause/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="ContinueButton" type="Button" parent="CanvasLayer/MenusGame/MenuPause/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Continue"
+
+[node name="RestartButton" type="Button" parent="CanvasLayer/MenusGame/MenuPause/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "RESTART"
+
+[node name="LevelsButton" type="Button" parent="CanvasLayer/MenusGame/MenuPause/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Levels"
+
+[node name="HomeButton" type="Button" parent="CanvasLayer/MenusGame/MenuPause/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Home"
+
+[connection signal="pressed" from="CanvasLayer/GameControls/MovementControls/LeftButton" to="CanvasLayer/GameControls" method="_on_left_button_pressed"]
+[connection signal="released" from="CanvasLayer/GameControls/MovementControls/LeftButton" to="CanvasLayer/GameControls" method="_on_left_button_released"]
+[connection signal="pressed" from="CanvasLayer/GameControls/MovementControls/RightButton" to="CanvasLayer/GameControls" method="_on_right_button_pressed"]
+[connection signal="released" from="CanvasLayer/GameControls/MovementControls/RightButton" to="CanvasLayer/GameControls" method="_on_right_button_released"]
+[connection signal="pressed" from="CanvasLayer/GameControls/InteractionControls/Jump" to="CanvasLayer/GameControls" method="_on_jump_pressed"]
+[connection signal="released" from="CanvasLayer/GameControls/InteractionControls/Jump" to="CanvasLayer/GameControls" method="_on_jump_released"]
+[connection signal="pressed" from="CanvasLayer/GameControls/InteractionControls/Shoot" to="CanvasLayer/GameControls" method="_on_shoot_pressed"]
+[connection signal="released" from="CanvasLayer/GameControls/InteractionControls/Shoot" to="CanvasLayer/GameControls" method="_on_shoot_released"]
+[connection signal="pressed" from="CanvasLayer/GameControls/InteractionControls/Swing" to="CanvasLayer/GameControls" method="_on_swing_pressed"]
+[connection signal="released" from="CanvasLayer/GameControls/InteractionControls/Swing" to="CanvasLayer/GameControls" method="_on_swing_released"]
+[connection signal="pressed" from="CanvasLayer/GameControls/GameMenu/Pause" to="CanvasLayer/GameControls" method="_on_pause_pressed"]
+[connection signal="released" from="CanvasLayer/GameControls/GameMenu/Pause" to="CanvasLayer/GameControls" method="_on_pause_released"]
+[connection signal="button_up" from="CanvasLayer/MenusGame/MenuClearFailed/VBoxContainer/MarginContainer/VBoxContainer/RestartLevelButton" to="CanvasLayer/MenusGame" method="_restart"]
+[connection signal="button_up" from="CanvasLayer/MenusGame/MenuClearFailed/VBoxContainer/MarginContainer/VBoxContainer/LevelsButton" to="CanvasLayer/MenusGame" method="_levels"]
+[connection signal="button_up" from="CanvasLayer/MenusGame/MenuClearFailed/VBoxContainer/MarginContainer/VBoxContainer/HomeButton" to="CanvasLayer/MenusGame" method="_home"]
+[connection signal="button_up" from="CanvasLayer/MenusGame/MenuClearSuccessful/VBoxContainer/MarginContainer/VBoxContainer/RestartLevelButton" to="CanvasLayer/MenusGame" method="_restart"]
+[connection signal="button_up" from="CanvasLayer/MenusGame/MenuClearSuccessful/VBoxContainer/MarginContainer/VBoxContainer/LevelsButton" to="CanvasLayer/MenusGame" method="_levels"]
+[connection signal="button_up" from="CanvasLayer/MenusGame/MenuClearSuccessful/VBoxContainer/MarginContainer/VBoxContainer/HomeButton" to="CanvasLayer/MenusGame" method="_home"]
+[connection signal="button_up" from="CanvasLayer/MenusGame/MenuPause/VBoxContainer/MarginContainer/VBoxContainer/ContinueButton" to="CanvasLayer/MenusGame" method="_continue"]
+[connection signal="button_up" from="CanvasLayer/MenusGame/MenuPause/VBoxContainer/MarginContainer/VBoxContainer/RestartButton" to="CanvasLayer/MenusGame" method="_restart"]
+[connection signal="button_up" from="CanvasLayer/MenusGame/MenuPause/VBoxContainer/MarginContainer/VBoxContainer/LevelsButton" to="CanvasLayer/MenusGame" method="_levels"]
+[connection signal="button_up" from="CanvasLayer/MenusGame/MenuPause/VBoxContainer/MarginContainer/VBoxContainer/HomeButton" to="CanvasLayer/MenusGame" method="_home"]

@@ -1,0 +1,138 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbv7ec162600s"]
+
+[ext_resource type="PackedScene" uid="uid://bua18cspj4ypj" path="res://scenes/view_template.tscn" id="1_3oxef"]
+[ext_resource type="Script" path="res://scripts/view_clear_successful.gd" id="2_jqig0"]
+
+[node name="ViewClearSuccessful" instance=ExtResource("1_3oxef")]
+script = ExtResource("2_jqig0")
+
+[node name="ClearSuccessfulMenu" type="Control" parent="." index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ClearSuccessfulMenu" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.27691
+anchor_top = 0.0895062
+anchor_right = 0.723958
+anchor_bottom = 0.805556
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ClearSuccessfulLabel" type="Label" parent="ClearSuccessfulMenu/VBoxContainer" index="0"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+theme_override_colors/font_color = Color(0.101961, 0.831373, 0.0509804, 1)
+theme_override_colors/font_shadow_color = Color(1, 0.137255, 0.137255, 1)
+text = "Clear
+successfull!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ClearSuccessfulMenu/VBoxContainer" index="1"]
+layout_mode = 2
+
+[node name="OldBestScoreContainer" type="HBoxContainer" parent="ClearSuccessfulMenu/VBoxContainer/VBoxContainer" index="0"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="OldScoreLabel" type="Label" parent="ClearSuccessfulMenu/VBoxContainer/VBoxContainer/OldBestScoreContainer" index="0"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 16
+text = "OLD BEST SCORE:"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="OldScore" type="Label" parent="ClearSuccessfulMenu/VBoxContainer/VBoxContainer/OldBestScoreContainer" index="1"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 16
+text = "0
+"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="ScoreContainer" type="HBoxContainer" parent="ClearSuccessfulMenu/VBoxContainer/VBoxContainer" index="1"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="ClearSuccessfulMenu/VBoxContainer/VBoxContainer/ScoreContainer" index="0"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+theme_override_colors/font_color = Color(0.101961, 0.831373, 0.0509804, 1)
+theme_override_colors/font_shadow_color = Color(1, 0.137255, 0.137255, 1)
+text = "SCORE:"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="NewBestScoreLabel" type="Label" parent="ClearSuccessfulMenu/VBoxContainer/VBoxContainer/ScoreContainer" index="1"]
+visible = false
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+theme_override_colors/font_color = Color(0.101961, 0.831373, 0.0509804, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+text = "New best score:"
+
+[node name="Score" type="Label" parent="ClearSuccessfulMenu/VBoxContainer/VBoxContainer/ScoreContainer" index="2"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+theme_override_colors/font_color = Color(0.101961, 0.831373, 0.0509804, 1)
+theme_override_colors/font_shadow_color = Color(1, 0.137255, 0.137255, 1)
+text = "0
+"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="MarginContainer" type="MarginContainer" parent="ClearSuccessfulMenu/VBoxContainer" index="2"]
+layout_mode = 2
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 75
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ClearSuccessfulMenu/VBoxContainer/MarginContainer" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="NextLevelButton" type="Button" parent="ClearSuccessfulMenu/VBoxContainer/MarginContainer/VBoxContainer" index="0"]
+layout_mode = 2
+text = "Next Level"
+
+[node name="RestartLevelButton" type="Button" parent="ClearSuccessfulMenu/VBoxContainer/MarginContainer/VBoxContainer" index="1"]
+layout_mode = 2
+text = "RESTART LEVEL"
+
+[node name="LevelsButton" type="Button" parent="ClearSuccessfulMenu/VBoxContainer/MarginContainer/VBoxContainer" index="2"]
+layout_mode = 2
+text = "Levels"
+
+[node name="HomeButton" type="Button" parent="ClearSuccessfulMenu/VBoxContainer/MarginContainer/VBoxContainer" index="3"]
+layout_mode = 2
+text = "Home"
+
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
+[connection signal="button_up" from="ClearSuccessfulMenu/VBoxContainer/MarginContainer/VBoxContainer/NextLevelButton" to="." method="_go_to_next_level"]
+[connection signal="button_up" from="ClearSuccessfulMenu/VBoxContainer/MarginContainer/VBoxContainer/RestartLevelButton" to="." method="_restart"]
+[connection signal="button_up" from="ClearSuccessfulMenu/VBoxContainer/MarginContainer/VBoxContainer/LevelsButton" to="." method="_go_to_levels"]
+[connection signal="button_up" from="ClearSuccessfulMenu/VBoxContainer/MarginContainer/VBoxContainer/HomeButton" to="." method="_go_to_home"]

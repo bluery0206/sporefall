@@ -1,0 +1,612 @@
+[gd_scene load_steps=11 format=3 uid="uid://7l3ld0kttgks"]
+
+[ext_resource type="PackedScene" uid="uid://bua18cspj4ypj" path="res://scenes/view_template.tscn" id="1_eg3ay"]
+[ext_resource type="Script" path="res://scripts/view_levels.gd" id="2_l6dyx"]
+[ext_resource type="Theme" uid="uid://c3p20iwqadeyh" path="res://assets/sporefall.tres" id="3_hesn2"]
+[ext_resource type="Texture2D" uid="uid://cmc118bap75a1" path="res://assets/Screenshot (35).png" id="4_sb7wq"]
+[ext_resource type="Texture2D" uid="uid://bpwc43iycn0x0" path="res://assets/Screenshot (37).png" id="5_u2n47"]
+[ext_resource type="Texture2D" uid="uid://sdosml5lxjqe" path="res://assets/Screenshot (36).png" id="6_rsay0"]
+[ext_resource type="Texture2D" uid="uid://diujs2sgfm6pj" path="res://assets/Screenshot (34).png" id="7_unw27"]
+[ext_resource type="Texture2D" uid="uid://ctehaegxgkvvk" path="res://assets/Screenshot (32).png" id="8_t831j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vaush"]
+bg_color = Color(0, 0, 0, 0.643137)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.546875, 0.546875, 0.546875, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ihokn"]
+bg_color = Color(0, 0, 0, 0.713726)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="ViewLevels" instance=ExtResource("1_eg3ay")]
+script = ExtResource("2_l6dyx")
+
+[node name="MenuLevels" type="Control" parent="." index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuLevels" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuLevels/MarginContainer" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="HBoxContainer" type="Control" parent="MenuLevels/MarginContainer/VBoxContainer" index="0"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="BackButton" type="Button" parent="MenuLevels/MarginContainer/VBoxContainer/HBoxContainer" index="0"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -15.5
+offset_right = 109.0
+offset_bottom = 15.5
+grow_vertical = 2
+size_flags_horizontal = 0
+text = "Back"
+
+[node name="LevelsTitleLabel" type="Label" parent="MenuLevels/MarginContainer/VBoxContainer/HBoxContainer" index="1"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -36.5
+offset_bottom = 36.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"HeaderMedium"
+text = "Levels"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MenuLevels/MarginContainer/VBoxContainer" index="1"]
+layout_mode = 2
+size_flags_vertical = 3
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer" index="0"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer" index="0"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="Level-1" type="Panel" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer" index="0"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_vaush")
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer/Level-1" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 30
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer/Level-1/MarginContainer" index="0"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer/Level-1/MarginContainer/Control" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_hesn2")
+theme_override_constants/separation = 30
+
+[node name="Contol" type="VBoxContainer" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer/Level-1/MarginContainer/Control/VBoxContainer" index="0"]
+layout_mode = 2
+
+[node name="LevelLabel" type="Label" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer/Level-1/MarginContainer/Control/VBoxContainer/Contol" index="0"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"TooltipLabel"
+theme_override_font_sizes/font_size = 25
+text = "Level One
+"
+
+[node name="HighestLevelLabel" type="Label" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer/Level-1/MarginContainer/Control/VBoxContainer/Contol" index="1"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"TooltipLabel"
+theme_override_font_sizes/font_size = 10
+text = "highest score:"
+
+[node name="Control" type="Control" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer/Level-1/MarginContainer/Control/VBoxContainer" index="1"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 125)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer/Level-1/MarginContainer/Control/VBoxContainer/Control" index="0"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+texture = ExtResource("4_sb7wq")
+expand_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer/Level-1/MarginContainer/Control/VBoxContainer" index="2"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 20
+
+[node name="EnterLevelButton" type="Button" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer/Level-1/MarginContainer/Control/VBoxContainer/MarginContainer" index="0"]
+layout_mode = 2
+text = "Enter level"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer" index="1"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="Level-2" type="Panel" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer2" index="0"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_vaush")
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer2/Level-2" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 30
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer2/Level-2/MarginContainer" index="0"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer2/Level-2/MarginContainer/Control" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_hesn2")
+theme_override_constants/separation = 30
+
+[node name="Contol" type="VBoxContainer" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer2/Level-2/MarginContainer/Control/VBoxContainer" index="0"]
+layout_mode = 2
+
+[node name="LevelLabel" type="Label" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer2/Level-2/MarginContainer/Control/VBoxContainer/Contol" index="0"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"TooltipLabel"
+theme_override_font_sizes/font_size = 25
+text = "Level Two"
+
+[node name="HighestLevelLabel" type="Label" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer2/Level-2/MarginContainer/Control/VBoxContainer/Contol" index="1"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"TooltipLabel"
+theme_override_font_sizes/font_size = 10
+text = "highest score:"
+
+[node name="Control" type="Control" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer2/Level-2/MarginContainer/Control/VBoxContainer" index="1"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 125)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer2/Level-2/MarginContainer/Control/VBoxContainer/Control" index="0"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+texture = ExtResource("5_u2n47")
+expand_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer2/Level-2/MarginContainer/Control/VBoxContainer" index="2"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 20
+
+[node name="EnterLevelButton" type="Button" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer2/Level-2/MarginContainer/Control/VBoxContainer/MarginContainer" index="0"]
+layout_mode = 2
+text = "Enter level"
+
+[node name="Panel" type="Panel" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer2/Level-2" index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ihokn")
+
+[node name="Label" type="Label" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer2/Level-2/Panel" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -12.0
+offset_right = 46.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level Locked"
+
+[node name="MarginContainer3" type="MarginContainer" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer" index="2"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="Level-3" type="Panel" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer3" index="0"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_vaush")
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer3/Level-3" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 30
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer3/Level-3/MarginContainer" index="0"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer3/Level-3/MarginContainer/Control" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_hesn2")
+theme_override_constants/separation = 30
+
+[node name="Contol" type="VBoxContainer" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer3/Level-3/MarginContainer/Control/VBoxContainer" index="0"]
+layout_mode = 2
+
+[node name="LevelLabel" type="Label" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer3/Level-3/MarginContainer/Control/VBoxContainer/Contol" index="0"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"TooltipLabel"
+theme_override_font_sizes/font_size = 25
+text = "Level Three"
+
+[node name="HighestLevelLabel" type="Label" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer3/Level-3/MarginContainer/Control/VBoxContainer/Contol" index="1"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"TooltipLabel"
+theme_override_font_sizes/font_size = 10
+text = "highest score:"
+
+[node name="Control" type="Control" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer3/Level-3/MarginContainer/Control/VBoxContainer" index="1"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 125)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer3/Level-3/MarginContainer/Control/VBoxContainer/Control" index="0"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+texture = ExtResource("6_rsay0")
+expand_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer3/Level-3/MarginContainer/Control/VBoxContainer" index="2"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 20
+
+[node name="EnterLevelButton" type="Button" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer3/Level-3/MarginContainer/Control/VBoxContainer/MarginContainer" index="0"]
+layout_mode = 2
+text = "Enter level"
+
+[node name="Panel" type="Panel" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer3/Level-3" index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ihokn")
+
+[node name="Label" type="Label" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer3/Level-3/Panel" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -12.0
+offset_right = 46.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level Locked"
+
+[node name="MarginContainer4" type="MarginContainer" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer" index="3"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="Level-4" type="Panel" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer4" index="0"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_vaush")
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer4/Level-4" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 30
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer4/Level-4/MarginContainer" index="0"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer4/Level-4/MarginContainer/Control" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_hesn2")
+theme_override_constants/separation = 30
+
+[node name="Contol" type="VBoxContainer" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer4/Level-4/MarginContainer/Control/VBoxContainer" index="0"]
+layout_mode = 2
+
+[node name="LevelLabel" type="Label" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer4/Level-4/MarginContainer/Control/VBoxContainer/Contol" index="0"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"TooltipLabel"
+theme_override_font_sizes/font_size = 25
+text = "Level Four"
+
+[node name="HighestLevelLabel" type="Label" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer4/Level-4/MarginContainer/Control/VBoxContainer/Contol" index="1"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"TooltipLabel"
+theme_override_font_sizes/font_size = 10
+text = "highest score:"
+
+[node name="Control" type="Control" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer4/Level-4/MarginContainer/Control/VBoxContainer" index="1"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 125)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer4/Level-4/MarginContainer/Control/VBoxContainer/Control" index="0"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+texture = ExtResource("7_unw27")
+expand_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer4/Level-4/MarginContainer/Control/VBoxContainer" index="2"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 20
+
+[node name="EnterLevelButton" type="Button" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer4/Level-4/MarginContainer/Control/VBoxContainer/MarginContainer" index="0"]
+layout_mode = 2
+text = "Enter level"
+
+[node name="Panel" type="Panel" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer4/Level-4" index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ihokn")
+
+[node name="Label" type="Label" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer4/Level-4/Panel" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -12.0
+offset_right = 46.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level Locked"
+
+[node name="MarginContainer5" type="MarginContainer" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer" index="4"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="Level-5" type="Panel" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer5" index="0"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_vaush")
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer5/Level-5" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 30
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer5/Level-5/MarginContainer" index="0"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer5/Level-5/MarginContainer/Control" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_hesn2")
+theme_override_constants/separation = 30
+
+[node name="Contol" type="VBoxContainer" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer5/Level-5/MarginContainer/Control/VBoxContainer" index="0"]
+layout_mode = 2
+
+[node name="LevelLabel" type="Label" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer5/Level-5/MarginContainer/Control/VBoxContainer/Contol" index="0"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"TooltipLabel"
+theme_override_font_sizes/font_size = 25
+text = "Level Five"
+
+[node name="HighestLevelLabel" type="Label" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer5/Level-5/MarginContainer/Control/VBoxContainer/Contol" index="1"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"TooltipLabel"
+theme_override_font_sizes/font_size = 10
+text = "highest score:"
+
+[node name="Control" type="Control" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer5/Level-5/MarginContainer/Control/VBoxContainer" index="1"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 125)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer5/Level-5/MarginContainer/Control/VBoxContainer/Control" index="0"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+texture = ExtResource("8_t831j")
+expand_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer5/Level-5/MarginContainer/Control/VBoxContainer" index="2"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 20
+
+[node name="EnterLevelButton" type="Button" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer5/Level-5/MarginContainer/Control/VBoxContainer/MarginContainer" index="0"]
+layout_mode = 2
+text = "Enter level"
+
+[node name="Panel" type="Panel" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer5/Level-5" index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ihokn")
+
+[node name="Label" type="Label" parent="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer5/Level-5/Panel" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -12.0
+offset_right = 46.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level Locked"
+
+[connection signal="button_up" from="MenuLevels/MarginContainer/VBoxContainer/HBoxContainer/BackButton" to="." method="_back"]
+[connection signal="button_up" from="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer/Level-1/MarginContainer/Control/VBoxContainer/MarginContainer/EnterLevelButton" to="." method="_enter_level_one"]
+[connection signal="button_up" from="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer2/Level-2/MarginContainer/Control/VBoxContainer/MarginContainer/EnterLevelButton" to="." method="_enter_level_two"]
+[connection signal="button_up" from="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer3/Level-3/MarginContainer/Control/VBoxContainer/MarginContainer/EnterLevelButton" to="." method="_enter_level_three"]
+[connection signal="button_up" from="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer4/Level-4/MarginContainer/Control/VBoxContainer/MarginContainer/EnterLevelButton" to="." method="_etner_level_four"]
+[connection signal="button_up" from="MenuLevels/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/MarginContainer5/Level-5/MarginContainer/Control/VBoxContainer/MarginContainer/EnterLevelButton" to="." method="_enter_level_five"]
