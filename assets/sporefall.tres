@@ -1,0 +1,121 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://c3p20iwqadeyh"]
+
+[ext_resource type="FontFile" uid="uid://bgqdam2blu0o1" path="res://assets/fonts/TerrorLetter-p7v11.ttf" id="1_mse2k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7jmbu"]
+bg_color = Color(0.177083, 0.177083, 0.177083, 1)
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.932292, 0.121392, 0.121392, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+expand_margin_top = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ofqkc"]
+bg_color = Color(0.177083, 0.177083, 0.177083, 1)
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.958333, 0.1148, 0.1148, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+expand_margin_top = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gajv8"]
+bg_color = Color(0.177083, 0.177083, 0.177083, 1)
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.958333, 0.1148, 0.1148, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+expand_margin_top = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xjlhl"]
+bg_color = Color(0.177083, 0.177083, 0.177083, 1)
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.958333, 0.1148, 0.1148, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+expand_margin_top = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vht5d"]
+bg_color = Color(0.177083, 0.177083, 0.177083, 1)
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.958333, 0.1148, 0.1148, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+expand_margin_top = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cu3x5"]
+border_width_top = 15
+border_width_bottom = 15
+border_color = Color(0.8, 0.8, 0.8, 0)
+shadow_size = 4
+
+[resource]
+Button/colors/font_color = Color(0.911458, 0.15191, 0.15191, 1)
+Button/colors/font_disabled_color = Color(0.588542, 0.128743, 0.128743, 1)
+Button/colors/font_focus_color = Color(1, 0, 0, 1)
+Button/colors/font_hover_color = Color(0.958333, 0.1148, 0.1148, 1)
+Button/colors/font_hover_pressed_color = Color(1, 0, 0, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 0, 0, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 16
+Button/fonts/font = ExtResource("1_mse2k")
+Button/styles/disabled = SubResource("StyleBoxFlat_7jmbu")
+Button/styles/focus = SubResource("StyleBoxFlat_ofqkc")
+Button/styles/hover = SubResource("StyleBoxFlat_gajv8")
+Button/styles/normal = SubResource("StyleBoxFlat_xjlhl")
+Button/styles/pressed = SubResource("StyleBoxFlat_vht5d")
+HScrollBar/styles/scroll = SubResource("StyleBoxFlat_cu3x5")
+HeaderLarge/colors/font_color = Color(1, 0.137255, 0.137255, 1)
+HeaderLarge/colors/font_outline_color = Color(0, 0, 0, 1)
+HeaderLarge/colors/font_shadow_color = Color(0.101961, 0.831373, 0.0509804, 1)
+HeaderLarge/constants/outline_size = 25
+HeaderLarge/constants/shadow_offset_x = 9
+HeaderLarge/constants/shadow_offset_y = 12
+HeaderLarge/constants/shadow_outline_size = 7
+HeaderLarge/font_sizes/font_size = 86
+HeaderMedium/colors/font_color = Color(1, 0.137255, 0.137255, 1)
+HeaderMedium/colors/font_outline_color = Color(0, 0, 0, 1)
+HeaderMedium/colors/font_shadow_color = Color(0.101961, 0.831373, 0.0509804, 1)
+HeaderMedium/constants/outline_size = 20
+HeaderMedium/constants/shadow_offset_x = 9
+HeaderMedium/constants/shadow_offset_y = 12
+HeaderMedium/constants/shadow_outline_size = 7
+HeaderMedium/font_sizes/font_size = 50
+HeaderMedium/styles/normal = null
+HeaderSmall/colors/font_color = Color(1, 0.137255, 0.137255, 1)
+HeaderSmall/colors/font_outline_color = Color(0, 0, 0, 1)
+HeaderSmall/colors/font_shadow_color = Color(0.101961, 0.831373, 0.0509804, 1)
+HeaderSmall/constants/outline_size = 20
+HeaderSmall/constants/shadow_offset_x = 9
+HeaderSmall/constants/shadow_offset_y = 12
+HeaderSmall/constants/shadow_outline_size = 7
+HeaderSmall/font_sizes/font_size = 25
